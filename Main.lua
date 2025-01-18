@@ -1391,6 +1391,25 @@ Options.ToggleAutoLevel:SetValue(false)
         end
     end)
     local bonefarm = Tabs.Main:AddSection("Bone Farm")
+    local ToggleAutoRandumBone = Tabs.Main:AddToggle("ToggleAutoRandumBone", {Title = "Auto Random Bones", Default = _G.AutoRandumBone })
+    ToggleAutoRandumBone:OnChanged(function(Value)
+        _G.AutoRandumBone = Value
+        saveSettings()
+    end)
+spawn(function()
+    while wait(.1) do
+            if _G.AutoRandumBone then
+                local args = {
+                    [1] = "Bones",
+                    [2] = "buy",
+                    [3] = 1,
+                    [4] = 1
+                }
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end
+    end)
+
     local ToggleAutoBone = Tabs.Main:AddToggle("ToggleAutoBone", {Title = "Auto Farm Bone", Default = _G.AutoBone })
     ToggleAutoBone:OnChanged(function(Value)
         _G.AutoBone = Value
@@ -1436,26 +1455,7 @@ spawn(function()
         end)
     end
 end)
-local ToggleAutoRandumBone = Tabs.Main:AddToggle("ToggleAutoRandumBone", {Title = "Auto Random Bones", Default = _G.AutoRandumBone })
-    ToggleAutoRandumBone:OnChanged(function(Value)
-        _G.AutoRandumBone = Value
-        saveSettings()
-    end)
-spawn(function()
-    while wait(.1) do
-            if _G.AutoRandumBone then
-                local args = {
-                    [1] = "Bones",
-                    [2] = "buy",
-                    [3] = 1,
-                    [4] = 1
-                }
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-            end
-        end
-    end)
 
-    local katakuri = Tabs.Main:AddSection("Katakuri Farm")
     local FastAttackVaBringMob = Tabs.Setting:AddSection("Fast Attack And Bring Mob")
 local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Bring Mob", Default = true })
 

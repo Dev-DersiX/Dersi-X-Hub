@@ -1457,6 +1457,24 @@ spawn(function()
 end)
 
     local FastAttackVaBringMob = Tabs.Setting:AddSection("Fast Attack And Bring Mob")
+    local ToggleFastAttack = Tabs.Setting:AddToggle("ToggleFastAttack", {Title = "Fast Attack", Default = true })
+
+    ToggleFastAttack:OnChanged(function(Value)
+     _G.FastDersi = Value
+    end)
+    Options.ToggleFastAttack:SetValue(true)
+
+spawn(function()
+    while wait(0.4) do
+        pcall(function()
+            if _G.FastDersi then
+                repeat wait(0)
+
+                until not _G.FastDersi
+            end
+        end)
+    end
+end)
 local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Bring Mob", Default = true })
 
     Toggle:OnChanged(function(Value)
@@ -1558,21 +1576,4 @@ local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Bring Mob", Default 
             end
         end
     end)
-    local ToggleFastAttack = Tabs.Setting:AddToggle("ToggleFastAttack", {Title = "Fast Attack", Default = true })
-
-    ToggleFastAttack:OnChanged(function(Value)
-     _G.FastDersi = Value
-    end)
-    Options.ToggleFastAttack:SetValue(true)
-
-spawn(function()
-    while wait(0.4) do
-        pcall(function()
-            if _G.FastDersi then
-                repeat wait(0)
-
-                until not _G.FastDersi
-            end
-        end)
-    end
-end)
+    

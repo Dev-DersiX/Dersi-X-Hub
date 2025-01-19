@@ -1391,25 +1391,6 @@ Options.ToggleAutoLevel:SetValue(false)
         end
     end)
     local bonefarm = Tabs.Main:AddSection("Bone Farm")
-    local ToggleAutoRandumBone = Tabs.Main:AddToggle("ToggleAutoRandumBone", {Title = "Auto Random Bones", Default = _G.AutoRandumBone })
-    ToggleAutoRandumBone:OnChanged(function(Value)
-        _G.AutoRandumBone = Value
-        saveSettings()
-    end)
-spawn(function()
-    while wait(.1) do
-            if _G.AutoRandumBone then
-                local args = {
-                    [1] = "Bones",
-                    [2] = "buy",
-                    [3] = 1,
-                    [4] = 1
-                }
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-            end
-        end
-    end)
-
     local ToggleAutoBone = Tabs.Main:AddToggle("ToggleAutoBone", {Title = "Auto Farm Bone", Default = _G.AutoBone })
     ToggleAutoBone:OnChanged(function(Value)
         _G.AutoBone = Value
@@ -1485,7 +1466,7 @@ local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Bring Mob", Default 
         while wait() do
             if _G.BringMob then
                 pcall(function()
-                    Checknhiemvu()
+                    CheckQuest()
                     for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if _G.AutoLevel and BringMob and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true and string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMob) and v.Name == Mob and (Mob == "Factory Staff" or Mob == "Monkey" or Mob == "Dragon Crew Warrior" or Mob == "Dragon Crew Archer") and GetDistance(v.HumanoidRootPart.Position)  and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then
                             vv.HumanoidRootPart.Size = Vector3.new(80, 80, 80)

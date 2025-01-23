@@ -3,7 +3,7 @@
 local exploit = getexecutorname or identifyexecutor
 
 
-local hello = {
+local client = {
     ["Fluxus"] = true,
     ["Hydrogen"] = true,
     ["Arceus"] = true,
@@ -16,10 +16,10 @@ local hello = {
 }
 
 
-if hello[exploit()] == false then
+if client[exploit()] == false then
     game:GetService("Players").LocalPlayer:Kick("Not Support " .. exploit() .. " | Client Bạn Đang Sử Dụng Không Hỗ Trợ Script Chúng Tôi" .. exploit())
 else
-print("DEV HD ROBLOX")
+print("Mình Là Skibidi Nè")
 end
 
 --Notifi
@@ -712,323 +712,23 @@ function CheckQuest()
             NameMob = "Isle Champion"
             CFrameQuest = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
             CFrameMob = CFrame.new(-16933.2129, 93.3503036, 999.450989)
+        elseif MyLevel == 2550 or MyLevel <= 2574 then
+            Mon = "Serpent Hunter"
+            LevelQuest = 1
+            NameQuest = "TikiQuest3"
+            NameMon = "Serpent Hunter"
+            CFrameQuest = CFrame.new(-16665, 105, 1576)
+            CFrameMon = CFrame.new(-16568, 165, 1589)
+        elseif MyLevel == 2575 or MyLevel <= 2600 then
+            Mon = "Skull Slayer"
+            LevelQuest = 2
+            NameQuest = "TikiQuest3"
+            NameMon = "Skull Slayer"
+            CFrameQuest = CFrame.new(-16665, 105, 1576)
+            CFrameMon = CFrame.new(-16844, 158, 1633)
         end
     end
 end
-function MaterialMob()
-    if _G.SelectMaterial == "Radioactive Material" then
-        MMob = "Factory Staff"
-        MPos = CFrame.new(-507.7895202636719, 72.99479675292969, -126.45632934570312)
-        SP = "Bar"
-    elseif _G.SelectMaterial == "Mystic Droplet" then
-        MMob = "Water Fighter"
-        MPos = CFrame.new(-3214.218017578125, 298.69952392578125, -10543.685546875)
-        SP = "ForgottenIsland"
-    elseif _G.SelectMaterial == "Magma Ore" then
-        if game.PlaceId == 2753915549 then
-            MMob = "Military Spy"
-            MPos = CFrame.new(-5850.2802734375, 77.28675079345703, 8848.6748046875)
-            SP = "Magma"
-        elseif game.PlaceId == 4442272183 then
-            MMob = "Lava Pirate"
-            MPos = CFrame.new(-5234.60595703125, 51.953372955322266, -4732.27880859375)
-            SP = "CircleIslandFire"
-        end
-    elseif _G.SelectMaterial == "Angel Wings" then
-        MMob = "Royal Soldier"
-        MPos = CFrame.new(-7827.15625, 5606.912109375, -1705.5833740234375)
-        SP = "Sky2"
-    elseif _G.SelectMaterial == "Leather" then
-        if game.PlaceId == 2753915549 then
-            MMob = "Pirate"
-            MPos = CFrame.new(-1211.8792724609375, 4.787090301513672, 3916.83056640625)
-            SP = "Pirate"
-        elseif game.PlaceId == 4442272183 then
-            MMob = "Marine Captain"
-            MPos = CFrame.new(-2010.5059814453125, 73.00115966796875, -3326.620849609375)
-            SP = "Greenb"
-        elseif game.PlaceId == 7449423635 then
-            MMob = "Jungle Pirate"
-            MPos = CFrame.new(-11975.78515625, 331.7734069824219, -10620.0302734375)
-            SP = "PineappleTown"
-        end
-    elseif _G.SelectMaterial == "Scrap Metal" then
-        if game.PlaceId == 2753915549 then
-            MMob = "Brute"
-            MPos = CFrame.new(-1132.4202880859375, 14.844913482666016, 4293.30517578125)
-            SP = "Pirate"
-        elseif game.PlaceId == 4442272183 then
-            MMob = "Mercenary"
-            MPos = CFrame.new(-972.307373046875, 73.04473876953125, 1419.2901611328125)
-            SP = "DressTown"
-        elseif game.PlaceId == 7449423635 then
-            MMob = "Pirate Millionaire"
-            MPos = CFrame.new(-289.6311950683594, 43.8282470703125, 5583.66357421875)
-            SP = "Default"
-        end
-    elseif _G.SelectMaterial == "Demonic Wisp" then
-        MMob = "Demonic Soul"
-        MPos = CFrame.new(-9503.388671875, 172.139892578125, 6143.0634765625)
-        SP = "HauntedCastle"
-    elseif _G.SelectMaterial == "Vampire Fang" then
-        MMob = "Vampire"
-        MPos = CFrame.new(-5999.20458984375, 6.437741279602051, -1290.059326171875)
-        SP = "Graveyard"
-    elseif _G.SelectMaterial == "Conjured Cocoa" then
-        MMob = "Chocolate Bar Battler"
-        MPos = CFrame.new(744.7930908203125, 24.76934242248535, -12637.7255859375)
-        SP = "Chocolate"
-    elseif _G.SelectMaterial == "Dragon Scale" then
-        MMob = "Dragon Crew Warrior"
-        MPos = CFrame.new(5824.06982421875, 51.38640213012695, -1106.694580078125)
-        SP = "Hydra1"
-    elseif _G.SelectMaterial == "Gunpowder" then
-        MMob = "Pistol Billionaire"
-        MPos = CFrame.new(-379.6134338378906, 73.84449768066406, 5928.5263671875)
-        SP = "Default"
-    elseif _G.SelectMaterial == "Fish Tail" then
-        MMob = "Fishman Captain"
-        MPos = CFrame.new(-10961.0126953125, 331.7977600097656, -8914.29296875)
-        SP = "PineappleTown"
-    elseif _G.SelectMaterial == "Mini Tusk" then
-        MMob = "Mythological Pirate"
-        MPos = CFrame.new(-13516.0458984375, 469.8182373046875, -6899.16064453125)
-        SP = "BigMansion"
-    end
-end
-function CheckBoss()
-    if yeunhi1 then
-        if getgenv().SelectBoss == "The Gorilla King" then
-            Boss = "The Gorilla King"
-            NameBoss = 'The Gorrila King'
-            NameQuestBoss = "JungleQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-1601.6553955078, 36.85213470459, 153.38809204102)
-            CFrameBoss = CFrame.new(-1088.75977, 8.13463783, -488.559906, -0.707134247, 0, 0.707079291, 0, 1, 0, -0.707079291, 0, -0.707134247)
-            elseif getgenv().SelectBoss == "Bobby" then
-            Boss = "Bobby"
-            NameBoss = 'Bobby'
-            NameQuestBoss = "BuggyQuest1"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-1140.1761474609, 4.752049446106, 3827.4057617188)
-            CFrameBoss = CFrame.new(-1087.3760986328, 46.949409484863, 4040.1462402344)
-            elseif getgenv().SelectBoss == "The Saw" then
-            Boss = "The Saw"
-            NameBoss = 'The Saw'
-            CFrameBoss = CFrame.new(-784.89715576172, 72.427383422852, 1603.5822753906)
-            elseif getgenv().SelectBoss == "Yeti" then
-            Boss = "Yeti"
-            NameBoss = 'Yeti'
-            NameQuestBoss = "SnowQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(1386.8073730469, 87.272789001465, -1298.3576660156)
-            CFrameBoss = CFrame.new(1218.7956542969, 138.01184082031, -1488.0262451172)
-            elseif getgenv().SelectBoss == "Mob Leader" then
-            Boss = "Mob Leader"
-            NameBoss = 'Mob Leader'
-            CFrameBoss = CFrame.new(-2844.7307128906, 7.4180502891541, 5356.6723632813)
-            elseif getgenv().SelectBoss == "Vice Admiral" then
-            Boss = "Vice Admiral"
-            NameBoss = 'Vice Admiral'
-            NameQuestBoss = "MarineQuest2"
-            NumberQuestBoss = 2
-            CFrameQuestBoss = CFrame.new(-5036.2465820313, 28.677835464478, 4324.56640625)
-            CFrameBoss = CFrame.new(-5006.5454101563, 88.032081604004, 4353.162109375)
-            elseif getgenv().SelectBoss == "Saber Expert" then
-            NameBoss = 'Saber Expert'
-            Boss = "Saber Expert"
-            elseif getgenv().SelectBoss == "Warden" then
-            Boss = "Warden"
-            NameBoss = 'Warden'
-            NameQuestBoss = "ImpelQuest"
-            NumberQuestBoss = 1
-            CFrameBoss = CFrame.new(5278.04932, 2.15167475, 944.101929, 0.220546961, -4.49946401e-06, 0.975376427, -1.95412576e-05, 1, 9.03162072e-06, -0.975376427, -2.10519756e-05, 0.220546961)
-            CFrameQuestBoss = CFrame.new(5191.86133, 2.84020686, 686.438721, -0.731384635, 0, 0.681965172, 0, 1, 0, -0.681965172, 0, -0.731384635)
-            elseif getgenv().SelectBoss == "Chief Warden" then
-            Boss = "Chief Warden"
-            NameBoss = 'Chief Warden'
-            NameQuestBoss = "ImpelQuest"
-            NumberQuestBoss = 2
-            CFrameBoss = CFrame.new(5206.92578, 0.997753382, 814.976746, 0.342041343, -0.00062915677, 0.939684749, 0.00191645394, 0.999998152, -2.80422337e-05, -0.939682961, 0.00181045406, 0.342041939)
-            CFrameQuestBoss = CFrame.new(5191.86133, 2.84020686, 686.438721, -0.731384635, 0, 0.681965172, 0, 1, 0, -0.681965172, 0, -0.731384635)
-            elseif getgenv().SelectBoss == "Swan" then
-            Boss = "Swan"
-            NameBoss = 'Swan'
-            NameQuestBoss = "ImpelQuest"
-            NumberQuestBoss = 3
-            CFrameBoss = CFrame.new(5325.09619, 7.03906584, 719.570679, -0.309060812, 0, 0.951042235, 0, 1, 0, -0.951042235, 0, -0.309060812)
-            CFrameQuestBoss = CFrame.new(5191.86133, 2.84020686, 686.438721, -0.731384635, 0, 0.681965172, 0, 1, 0, -0.681965172, 0, -0.731384635)
-            elseif getgenv().SelectBoss == "Magma Admiral" then
-            Boss = "Magma Admiral"
-            NameBoss = 'Magma Admiral'
-            NameQuestBoss = "MagmaQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-5314.6220703125, 12.262420654297, 8517.279296875)
-            CFrameBoss = CFrame.new(-5765.8969726563, 82.92064666748, 8718.3046875)
-            elseif getgenv().SelectBoss == "Fishman Lord" then
-            Boss = "Fishman Lord"
-            NameBoss = 'Fishman Lord'
-            NameQuestBoss = "FishmanQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
-            CFrameBoss = CFrame.new(61260.15234375, 30.950881958008, 1193.4329833984)
-            elseif getgenv().SelectBoss == "Wysper" then
-            Boss = "Wysper"
-            NameBoss = 'Wysper'
-            NameQuestBoss = "SkyExp1Quest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-7861.947265625, 5545.517578125, -379.85974121094)
-            CFrameBoss = CFrame.new(-7866.1333007813, 5576.4311523438, -546.74816894531)
-            elseif getgenv().SelectBoss == "Thunder God" then
-            Boss = "Thunder God"
-            NameBoss = 'Thunder God'
-            NameQuestBoss = "SkyExp2Quest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-7903.3828125, 5635.9897460938, -1410.923828125)
-            CFrameBoss = CFrame.new(-7994.984375, 5761.025390625, -2088.6479492188)
-            elseif getgenv().SelectBoss == "Cyborg" then
-            Boss = "Cyborg"
-            NameBoss = 'Cyborg'
-            NameQuestBoss = "FountainQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(5258.2788085938, 38.526931762695, 4050.044921875)
-            CFrameBoss = CFrame.new(6094.0249023438, 73.770050048828, 3825.7348632813)
-            elseif getgenv().SelectBoss == "Ice Admiral" then
-            Boss = "Ice Admiral"
-            NameBoss = 'Ice Admiral'
-            CFrameBoss = CFrame.new(1266.08948, 26.1757946, -1399.57678, -0.573599219, 0, -0.81913656, 0, 1, 0, 0.81913656, 0, -0.573599219)
-            elseif getgenv().SelectBoss == "Greybeard" then
-            Boss = "Greybeard"
-            NameBoss = 'Greybeard'
-            CFrameBoss = CFrame.new(-5081.3452148438, 85.221641540527, 4257.3588867188)
-        end
-    end
-    if World2 then
-        if getgenv().SelectBoss == "Diamond" then
-            Boss = "Diamond"
-            NameBoss = 'Diamond'
-            NameQuestBoss = "Area1Quest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-427.5666809082, 73.313781738281, 1835.4208984375)
-            CFrameBoss = CFrame.new(-1576.7166748047, 198.59265136719, 13.724286079407)
-            elseif getgenv().SelectBoss == "Jeremy" then
-            Boss = "Jeremy"
-            NameBoss = 'Jeremy'
-            NameQuestBoss = "Area2Quest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(636.79943847656, 73.413787841797, 918.00415039063)
-            CFrameBoss = CFrame.new(2006.9261474609, 448.95666503906, 853.98284912109)
-            elseif getgenv().SelectBoss == "Fajita" then
-            Boss = "Fajita"
-            NameBoss = 'Fajita'
-            NameQuestBoss = "MarineQuest3"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-2441.986328125, 73.359344482422, -3217.5324707031)
-            CFrameBoss = CFrame.new(-2172.7399902344, 103.32216644287, -4015.025390625)
-            elseif getgenv().SelectBoss == "Don Swan" then
-            Boss = "Don Swan"
-            NameBoss = 'Don Swan'
-            CFrameBoss = CFrame.new(2286.2004394531, 15.177839279175, 863.8388671875)
-            elseif getgenv().SelectBoss == "Smoke Admiral" then
-            Boss = "Smoke Admiral"
-            NameBoss = 'Smoke Admiral'
-            NameQuestBoss = "IceSideQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-5429.0473632813, 15.977565765381, -5297.9614257813)
-            CFrameBoss = CFrame.new(-5275.1987304688, 20.757257461548, -5260.6669921875)
-            elseif getgenv().SelectBoss == "Awakened Ice Admiral" then
-            Boss = "Awakened Ice Admiral"
-            NameBoss = 'Awakened Ice Admiral'
-            NameQuestBoss = "FrostQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(5668.9780273438, 28.519989013672, -6483.3520507813)
-            CFrameBoss = CFrame.new(6403.5439453125, 340.29766845703, -6894.5595703125)
-            elseif getgenv().SelectBoss == "Tide Keeper" then
-            Boss = "Tide Keeper"
-            NameBoss = 'Tide Keeper'
-            NameQuestBoss = "ForgottenQuest"
-            NumberQuestBoss = 3
-            CFrameQuestBoss = CFrame.new(-3053.9814453125, 237.18954467773, -10145.0390625)
-            CFrameBoss = CFrame.new(-3795.6423339844, 105.88877105713, -11421.307617188)
-            elseif getgenv().SelectBoss == "Darkbeard" then
-            Boss = "Darkbeard"
-            NameBoss = 'Darkbeard'
-            CFrameMon = CFrame.new(3677.08203125, 62.751937866211, -3144.8332519531)
-            elseif getgenv().SelectBoss == "Cursed Captain" then
-            Boss = "Cursed Captain"
-            NameBoss = 'Cursed Captain'
-            CFrameBoss = CFrame.new(916.928589, 181.092773, 33422)
-            elseif getgenv().SelectBoss == "Order" then
-            Boss = "Order"
-            NameBoss = 'Order'
-            CFrameBoss = CFrame.new(-6217.2021484375, 28.047645568848, -5053.1357421875)
-        end
-    end
-    if World3 then
-        if getgenv().SelectBoss == "Stone" then
-        Boss = "Stone"
-        NameBoss = 'Stone'
-        NameQuestBoss = "PiratePortQuest"
-        NumberQuestBoss = 3
-        CFrameQuestBoss = CFrame.new(-289.76705932617, 43.819011688232, 5579.9384765625)
-        CFrameBoss = CFrame.new(-1027.6512451172, 92.404174804688, 6578.8530273438)
-        elseif getgenv().SelectBoss == "Island Empress" then
-        Boss = "Island Empress"
-        NameBoss = 'Island Empress'
-        NameQuestBoss = "AmazonQuest2"
-        NumberQuestBoss = 3
-        CFrameQuestBoss = CFrame.new(5445.9541015625, 601.62945556641, 751.43792724609)
-        CFrameBoss = CFrame.new(5543.86328125, 668.97399902344, 199.0341796875)
-        elseif getgenv().SelectBoss == "Kilo Admiral" then
-        Boss = "Kilo Admiral"
-        NameBoss = 'Kilo Admiral'
-        NameQuestBoss = "MarineTreeIsland"
-        NumberQuestBoss = 3
-        CFrameQuestBoss = CFrame.new(2179.3010253906, 28.731239318848, -6739.9741210938)
-        CFrameBoss = CFrame.new(2764.2233886719, 432.46154785156, -7144.4580078125)
-        elseif getgenv().SelectBoss == "Captain Elephant" then
-        Boss = "Captain Elephant"
-        NameBoss = 'Captain Elephant'
-        NameQuestBoss = "DeepForestIsland"
-        NumberQuestBoss = 3
-        CFrameQuestBoss = CFrame.new(-13232.682617188, 332.40396118164, -7626.01171875)
-        CFrameBoss = CFrame.new(-13376.7578125, 433.28689575195, -8071.392578125)
-        elseif getgenv().SelectBoss == "Beautiful Pirate" then
-        Boss = "Beautiful Pirate"
-        NameBoss = 'Beautiful Pirate'
-        NameQuestBoss = "DeepForestIsland2"
-        NumberQuestBoss = 3
-        CFrameQuestBoss = CFrame.new(-12682.096679688, 390.88653564453, -9902.1240234375)
-        CFrameBoss = CFrame.new(5283.609375, 22.56223487854, -110.78285217285)
-        elseif getgenv().SelectBoss == "Cake Queen" then
-        Boss = "Cake Queen"
-        NameBoss = 'Cake Queen'
-        NameQuestBoss = "IceCreamIslandQuest"
-        NumberQuestBoss = 3
-        CFrameQuestBoss = CFrame.new(-819.376709, 64.9259796, -10967.2832, -0.766061664, 0, 0.642767608, 0, 1, 0, -0.642767608, 0, -0.766061664)
-        CFrameBoss = CFrame.new(-678.648804, 381.353943, -11114.2012, -0.908641815, 0.00149294338, 0.41757378, 0.00837114919, 0.999857843, 0.0146408929, -0.417492568, 0.0167988986, -0.90852499)
-        elseif getgenv().SelectBoss == "Longma" then
-        Boss = "Longma"
-        NameBoss = 'Longma'
-        CFrameBoss = CFrame.new(-10238.875976563, 389.7912902832, -9549.7939453125)
-        elseif getgenv().SelectBoss == "Soul Reaper" then
-        Boss = "Soul Reaper"
-        NameBoss = 'Soul Reaper'
-        CFrameBoss = CFrame.new(-9524.7890625, 315.80429077148, 6655.7192382813)
-        elseif getgenv().SelectBoss == "rip_indra True Form" then
-        Boss = "rip_indra True Form"
-        NameBoss = 'rip_indra True Form'
-        CFrameBoss = CFrame.new(-5415.3920898438, 505.74133300781, -2814.0166015625)
-        end
-    end
-end
-function WaitHRP(q0) 
-    if not q0 then 
-        return 
-    end
-    return q0.Character:WaitForChild("HumanoidRootPart", 9) 
-end
-
 ------
 
 function Tween(Pos)
@@ -1040,9 +740,9 @@ function Tween(Pos)
         game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart", 9)
         game.Players.LocalPlayer.Character:WaitForChild("Head", 9)
 
-        local sex = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local bay = game.Players.LocalPlayer.Character.HumanoidRootPart
         if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Hold") then
-            local Hold = Instance.new("BodyVelocity", sex)
+            local Hold = Instance.new("BodyVelocity", bay)
             Hold.Name = "Hold"
             Hold.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
             Hold.Velocity = Vector3.new(0, 0, 0)
@@ -1065,10 +765,10 @@ function Tween(Pos)
                 end
             end)
         end
-        if didauvaynhi then
-            didauvaynhi:Cancel()
+        if skibidi then
+            skibidi:Cancel()
         end
-        didauvaynhi = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.PartTele, TweenInfo.new(Distance / getgenv().TweenSpeed, Enum.EasingStyle.Linear),{CFrame = Pos})
+        skibidi = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.PartTele, TweenInfo.new(Distance / getgenv().TweenSpeed, Enum.EasingStyle.Linear),{CFrame = Pos})
         didauvaynhi:Play()
     end
 end
@@ -1326,9 +1026,124 @@ function KillMob(b)
         end
     end
 end
+local player = game.Players.LocalPlayer
 
+function FindEnemiesInRange(targets, enemies)
+    local playerPos = (player.Character or player.CharacterAdded:Wait()):GetPivot().Position
+    local primaryTarget = nil
+
+    for _, enemy in ipairs(enemies) do
+        if not enemy:GetAttribute("IsBoat") and enemy:FindFirstChildOfClass("Humanoid") and enemy.Humanoid.Health > 0 then
+            local head = enemy:FindFirstChild("Head")
+            if head and (playerPos - head.Position).Magnitude <= 60 then
+                if enemy ~= player.Character then
+                    table.insert(targets, { enemy, head })
+                    primaryTarget = head
+                end
+            end
+        end
+    end
+
+    return primaryTarget
+end
+
+function GetEquippedTool()
+    local character = player.Character
+    if not character then return nil end
+    for _, item in ipairs(character:GetChildren()) do
+        if item:IsA("Tool") then
+            return item
+        end
+    end
+    return nil
+end
+
+function AttackNoCoolDown()
+    local targets = {}
+    local enemies = game:GetService("Workspace").Enemies:GetChildren()
+    local primaryPart = FindEnemiesInRange(targets, enemies)
+
+    if not primaryPart then return end
+
+    local tool = GetEquippedTool()
+    if not tool then return end
+
+    pcall(function()
+        local storage = game:GetService("ReplicatedStorage")
+        local attackEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterAttack")
+        local hitEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterHit")
+
+        if #targets > 0 then
+            attackEvent:FireServer(0.000000001)
+            hitEvent:FireServer(primaryPart, targets)
+        else
+            task.wait(0.000000001)
+        end
+    end)
+end
+
+FastAttack = true
+
+spawn(function()
+    if FastAttack then
+        repeat
+            task.wait()
+            AttackNoCoolDown()
+        until not FastAttack
+    end
+end)
 local CheckLevel = game.Players.LocalPlayer.Data.Level.Value
 -----------------------------------------------------------------------------------------
+local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
+        Title = "Weapon",
+        Values = {'Melee','Sword','Blox Fruit'},
+        Multi = false,
+        Default = 1,
+    })
+    DropdownSelectWeapon:SetValue('Melee')
+    DropdownSelectWeapon:OnChanged(function(Value)
+        G_UsingTool = Value
+    end)
+    task.spawn(function()
+        while wait() do
+            pcall(function()
+                if G_UsingTool == "Melee" then
+                    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ToolTip == "Melee" then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                SelectWeapon = v.Name
+                            end
+                        end
+                    end
+                elseif G_UsingTool == "Sword" then
+                    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ToolTip == "Sword" then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                SelectWeapon = v.Name
+                            end
+                        end
+                    end
+                elseif G_UsingTool == " Blox Fruit" then
+                    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ToolTip == "Blox Fruit" then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                SelectWeapon = v.Name
+                            end
+                        end
+                    end
+                else
+                    for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.ToolTip == "Melee" then
+                            if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+                                SelectWeapon = v.Name
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+
 local Levelfarm = Tabs.Main:AddSection("Level Farm")
 local ToggleAutoLevel = Tabs.Main:AddToggle("ToggleAutoLevel", {Title = "Auto Farm Level", Default = _G.AutoLevel })
 ToggleAutoLevel:OnChanged(function(Value)
@@ -1344,9 +1159,6 @@ Options.ToggleAutoLevel:SetValue(false)
                     CheckQuest()
                     if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMob) or not game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                        if BypassTP then
-                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 2000 then
-                                BTP(CFrameQuest)
                             elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 2000 then
                                 Tween(CFrameQuest)
                             end
@@ -1432,26 +1244,6 @@ spawn(function()
                         Tween(PosBone)
                     end
                 end
-            end
-        end)
-    end
-end)
-
-    local FastAttackVaBringMob = Tabs.Setting:AddSection("Fast Attack And Bring Mob")
-    local ToggleFastAttack = Tabs.Setting:AddToggle("ToggleFastAttack", {Title = "Fast Attack", Default = true })
-
-    ToggleFastAttack:OnChanged(function(Value)
-     _G.FastDersi = Value
-    end)
-    Options.ToggleFastAttack:SetValue(true)
-
-spawn(function()
-    while wait(0.4) do
-        pcall(function()
-            if _G.FastDersi then
-                repeat wait(0)
-
-                until not _G.FastDersi
             end
         end)
     end

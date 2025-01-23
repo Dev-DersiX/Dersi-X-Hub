@@ -1090,7 +1090,10 @@ spawn(function()
             task.wait()
             AttackNoCoolDown()
         until not FastAttack
-    end
+       end
+     end
+  end)
+end
 end)
 local CheckLevel = game.Players.LocalPlayer.Data.Level.Value
 -----------------------------------------------------------------------------------------

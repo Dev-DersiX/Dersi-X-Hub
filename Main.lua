@@ -1,31 +1,3 @@
-local exploit = getexecutorname or identifyexecutor
-
-
-local hello = {
-    ["Fluxus"] = true,
-    ["Hydrogen"] = true,
-    ["Arceus"] = true,
-    ["Delta"] = true,
-    ["Solara"] = false,
-    ["Codex"] = true,
-    ["Wave"] = true,
-    ["Vegax"] = true,
-    ["Trigon"] = true,
-    ["Illusion"] = true,
-    ["Swift"] = true,
-    ["Argon"] = true,
-    ["Zorara"]= true,
-    ["Cryptic"] = true,
-    ["Xeno"] = true,
-    ["Atlantis"] = false,
-}
-
-
-if hello[exploit()] == false then
-    game:GetService("Players").LocalPlayer:Kick("Not Support " .. exploit() .. " | Client Bạn Đang Sử Dụng Không Hỗ Trợ Script Chúng Tôi" .. exploit())
-else
-    print("Skibidi toilet")
-end
 local player = game.Players.LocalPlayer
 
 function FindEnemiesInRange(targets, enemies)
@@ -92,6 +64,33 @@ spawn(function()
         until not FastAttack
     end
 end)
+-----------------------------------------------------------------------------------------------------------
+local exploit = getexecutorname or identifyexecutor
+local hello = {
+    ["Fluxus"] = true,
+    ["Hydrogen"] = true,
+    ["Arceus"] = true,
+    ["Delta"] = true,
+    ["Solara"] = false,
+    ["Codex"] = true,
+    ["Wave"] = true,
+    ["Vegax"] = true,
+    ["Trigon"] = true,
+    ["Illusion"] = true,
+    ["Swift"] = true,
+    ["Argon"] = true,
+    ["Zorara"]= true,
+    ["Cryptic"] = true,
+    ["Xeno"] = true,
+    ["Atlantis"] = false,
+}
+
+
+if hello[exploit()] == false then
+    game:GetService("Players").LocalPlayer:Kick("Not Support " .. exploit() .. " | Client Bạn Đang Sử Dụng Không Hỗ Trợ Script Chúng Tôi" .. exploit())
+else
+    print("Skibidi toilet")
+end
 -------------------------------------------------------------------------------------------------------
 notis = require(game.ReplicatedStorage:WaitForChild("Notification"))
 notis.new("<Color=White>Dersi X Hub<Color=/>"):Display()
@@ -1893,46 +1892,8 @@ function Hop()
             end)
         end)
         ----------------------------------------------------------------------------------------------------
+        
         local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
-            Title = "Select Weapon",
-            Values = {'Melee','Sword'},
-            Multi = false,
-            Default = 1,
-        })
-        DropdownSelectWeapon:SetValue('Melee')
-        DropdownSelectWeapon:OnChanged(function(Value)
-            _G.UsingTool = Value
-        end)
-        task.spawn(function()
-            while wait() do
-                pcall(function()
-                    if _G.UsingTool == "Melee" then
-                        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                            if v.ToolTip == "Melee" then
-                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                                    _G.UsingTool = v.Name
-                                end
-                            end
-                        end
-                    elseif _G.UsingTool == "Sword" then
-                        for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                            if v.ToolTip == "Sword" then
-                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                                    _G.UsingTool = v.Name
-                                end
-                            end
-                        end
-                    elseif _G.UsingTool == "Blox Fruits" then
-                        for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-                            if v.ToolTip == "Blox Fruits" then
-                                if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
-                                end
-                            end
-                        end                
-                    end
-                end)
-            end
-        end)local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
             Title = "Select Weapon",
             Values = {'Melee','Sword'},
             Multi = false,

@@ -1,3 +1,98 @@
+local exploit = getexecutorname or identifyexecutor
+local hello = {
+    ["Fluxus"] = true,
+    ["Hydrogen"] = true,
+    ["Arceus"] = true,
+    ["Delta"] = true,
+    ["Solara"] = false,
+    ["Codex"] = true,
+    ["Wave"] = true,
+    ["Vegax"] = true,
+    ["Trigon"] = true,
+    ["Illusion"] = true,
+    ["Swift"] = true,
+    ["Argon"] = true,
+    ["Zorara"]= true,
+    ["Cryptic"] = true,
+    ["Xeno"] = true,
+    ["Atlantis"] = false,
+}
+
+
+if hello[exploit()] == false then
+    game:GetService("Players").LocalPlayer:Kick("Not Support " .. exploit() .. " | Client Bạn Đang Sử Dụng Không Hỗ Trợ Script Chúng Tôi" .. exploit())
+else
+    print("Skibidi toilet")
+end
+
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer:FindFirstChild("DataLoaded")
+repeat
+    pcall(function()
+        if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main"):FindFirstChild("ChooseTeam") then
+            if getgenv().Teams == "Marines" then
+                for r, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.TextButton.Activated)) do
+                    v.Function()
+                end
+            elseif getgenv().Teams == "Pirates" then
+                for r, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.TextButton.Activated)) do
+                    v.Function()
+                end
+            else
+                for r, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.TextButton.Activated)) do
+                    v.Function()
+                end
+            end
+        end
+    end)
+until game.Players.LocalPlayer.Team ~= nil
+wait(1)
+-------------------------------------------------------------------------------------------------------
+notis = require(game.ReplicatedStorage:WaitForChild("Notification"))
+notis.new("<Color=White>Dersi X Hub<Color=/>"):Display()
+notis.new("<Color=Blue>Đang Load Script...<Color=/>"):Display()
+notis.new("<Color=White>Đã Load Xong!Chúc Bạn Chơi Vui Vẻ<Color=/>"):Display()
+-------------------------------------------------------------------------------------------------------
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+-------------------------------------------------------------------------------------------------------
+local Window = Fluent:CreateWindow({
+    Title = "Dersi X Hub",
+    SubTitle = "Main Version",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(520, 420),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Darker",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
+
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main"}),
+    Setting = Window:AddTab({ Title = "Setting"}),
+}
+Window:SelectTab(1)
+-------------------------------------------------------------------------------------------------------
+local Options = Fluent.Options
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "rbxassetid://100170894166021"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
+end)
+UICorner.Parent = ImageButton1
+------------------------------------------------------------------------------------------------------------
 local player = game.Players.LocalPlayer
 
 function FindEnemiesInRange(targets, enemies)
@@ -65,101 +160,7 @@ spawn(function()
     end
 end)
 -----------------------------------------------------------------------------------------------------------
-local exploit = getexecutorname or identifyexecutor
-local hello = {
-    ["Fluxus"] = true,
-    ["Hydrogen"] = true,
-    ["Arceus"] = true,
-    ["Delta"] = true,
-    ["Solara"] = false,
-    ["Codex"] = true,
-    ["Wave"] = true,
-    ["Vegax"] = true,
-    ["Trigon"] = true,
-    ["Illusion"] = true,
-    ["Swift"] = true,
-    ["Argon"] = true,
-    ["Zorara"]= true,
-    ["Cryptic"] = true,
-    ["Xeno"] = true,
-    ["Atlantis"] = false,
-}
 
-
-if hello[exploit()] == false then
-    game:GetService("Players").LocalPlayer:Kick("Not Support " .. exploit() .. " | Client Bạn Đang Sử Dụng Không Hỗ Trợ Script Chúng Tôi" .. exploit())
-else
-    print("Skibidi toilet")
-end
--------------------------------------------------------------------------------------------------------
-notis = require(game.ReplicatedStorage:WaitForChild("Notification"))
-notis.new("<Color=White>Dersi X Hub<Color=/>"):Display()
-notis.new("<Color=Blue>Đang Load Script...<Color=/>"):Display()
-notis.new("<Color=White>Đã Load Xong!Chúc Bạn Chơi Vui Vẻ<Color=/>"):Display()
--------------------------------------------------------------------------------------------------------
-repeat wait() until game:IsLoaded() and game.Players.LocalPlayer:FindFirstChild("DataLoaded")
-repeat
-    pcall(function()
-        if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main"):FindFirstChild("ChooseTeam") then
-            if getgenv().Teams == "Marines" then
-                for r, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.TextButton.Activated)) do
-                    v.Function()
-                end
-            elseif getgenv().Teams == "Pirates" then
-                for r, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.TextButton.Activated)) do
-                    v.Function()
-                end
-            else
-                for r, v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.TextButton.Activated)) do
-                    v.Function()
-                end
-            end
-        end
-    end)
-until game.Players.LocalPlayer.Team ~= nil
-wait(1)
--------------------------------------------------------------------------------------------------------
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
--------------------------------------------------------------------------------------------------------
-local Window = Fluent:CreateWindow({
-    Title = "Dersi X Hub",
-    SubTitle = "Main Version",
-    TabWidth = 160,
-    Size = UDim2.fromOffset(520, 420),
-    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
-    Theme = "Darker",
-    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
-})
-
-local Tabs = {
-    Main = Window:AddTab({ Title = "Main"}),
-    Setting = Window:AddTab({ Title = "Setting"}),
-}
-Window:SelectTab(1)
--------------------------------------------------------------------------------------------------------
-local Options = Fluent.Options
-local ScreenGui1 = Instance.new("ScreenGui")
-local ImageButton1 = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ImageButton1.Parent = ScreenGui1
-ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton1.BorderSizePixel = 0
-ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton1.Size = UDim2.new(0, 50, 0, 50)
-ImageButton1.Draggable = true
-ImageButton1.Image = "rbxassetid://100170894166021"
-ImageButton1.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,"LeftControl",false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,"LeftControl",false,game)
-end)
-UICorner.Parent = ImageButton1
-------------------------------------------------------------------------------------------------------------
 if game.PlaceId == 2753915549 then World1 = true elseif game.PlaceId == 4442272183 then World2 = true elseif game.PlaceId == 7449423635 then World3 = true end
 function CheckLevel() 
     Level = game:GetService("Players").LocalPlayer.Data.Level.Value

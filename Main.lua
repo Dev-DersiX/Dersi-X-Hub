@@ -712,14 +712,14 @@ function CheckQuest()
             NameMob = "Isle Champion"
             CFrameQuest = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
             CFrameMob = CFrame.new(-16933.2129, 93.3503036, 999.450989)
-        elseif MyLevel == 2550 or MyLevel <= 2574 then
+            elseif MyLevel == 2550 or YourLevel <= 2574 then
             Mon = "Serpent Hunter"
             LevelQuest = 1
             NameQuest = "TikiQuest3"
             NameMon = "Serpent Hunter"
             CFrameQuest = CFrame.new(-16665, 105, 1576)
             CFrameMon = CFrame.new(-16568, 165, 1589)
-        elseif MyLevel == 2575 or MyLevel <= 2600 then
+            elseif MyLevel == 2575 or YourLevel <= 2600 then
             Mon = "Skull Slayer"
             LevelQuest = 2
             NameQuest = "TikiQuest3"
@@ -1057,6 +1057,37 @@ function GetEquippedTool()
     end
     return nil
 end
+local player = game.Players.LocalPlayer
+
+function FindEnemiesInRange(targets, enemies)
+    local playerPos = (player.Character or player.CharacterAdded:Wait()):GetPivot().Position
+    local primaryTarget = nil
+
+    for _, enemy in ipairs(enemies) do
+        if not enemy:GetAttribute("IsBoat") and enemy:FindFirstChildOfClass("Humanoid") and enemy.Humanoid.Health > 0 then
+            local head = enemy:FindFirstChild("Head")
+            if head and (playerPos - head.Position).Magnitude <= 60 then
+                if enemy ~= player.Character then
+                    table.insert(targets, { enemy, head })
+                    primaryTarget = head
+                end
+            end
+        end
+    end
+
+    return primaryTarget
+end
+
+function GetEquippedTool()
+    local character = player.Character
+    if not character then return nil end
+    for _, item in ipairs(character:GetChildren()) do
+        if item:IsA("Tool") then
+            return item
+        end
+    end
+    return nil
+end
 
 function AttackNoCoolDown()
     local targets = {}
@@ -1081,22 +1112,9 @@ function AttackNoCoolDown()
         end
     end)
 end
-
-FastAttack = true
-
-spawn(function()
-    if FastAttack then
-        repeat
-            task.wait()
-            AttackNoCoolDown()
-        until not FastAttack
-       end
-     end
-  end)
-end
-end)
 local CheckLevel = game.Players.LocalPlayer.Data.Level.Value
 -----------------------------------------------------------------------------------------
+local VuKhi = Tabs.Main:AddSection("Select Weapon")
 local DropdownSelectWeapon = Tabs.Main:AddDropdown("DropdownSelectWeapon", {
         Title = "Weapon",
         Values = {'Melee','Sword','Blox Fruit'},
@@ -1249,6 +1267,22 @@ spawn(function()
                 end
             end
         end)
+    end
+end)
+
+local DanhNhanhVaGomQuai = Tabs.Main:AddSection("Fast Attack And Bring Mob")
+local ToggleFastAttack = Tabs.Setting:AddToggle("ToggleFastAttack", {Title = "Fast Attack", Default = true })
+
+    ToggleFastAttack:OnChanged(function(Value)
+     _G.FastAttack = Value
+    end)
+    Options.ToggleFastAttack:SetValue(true)
+    spawn(function()
+    if FastAttack then
+        repeat
+            task.wait()
+            AttackNoCoolDown()
+        until not FastAttack
     end
 end)
 local Toggle = Tabs.Setting:AddToggle("MyToggle", {Title = "Bring Mob", Default = true })

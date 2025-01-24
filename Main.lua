@@ -1,26 +1,3 @@
----Check Exploit
-
-local exploit = getexecutorname or identifyexecutor
-
-
-local client = {
-    ["Fluxus"] = true,
-    ["Hydrogen"] = true,
-    ["Arceus"] = true,
-    ["Delta"] = true,
-    ["Solara"] = false,
-    ["Codex"] = true,
-    ["Wave"] = true,
-    ["Vegax"] = true,
-    ["Trigon"] = true,
-}
-
-
-if client[exploit()] == false then
-    game:GetService("Players").LocalPlayer:Kick("Not Support " .. exploit() .. " | Client Bạn Đang Sử Dụng Không Hỗ Trợ Script Chúng Tôi" .. exploit())
-else
-print("Mình Là Skibidi Nè")
-end
 
 --Notifi
 notis = require(game.ReplicatedStorage:WaitForChild("Notification"))

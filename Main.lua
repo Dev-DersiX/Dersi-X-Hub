@@ -746,7 +746,7 @@ function Tween(Pos)
             skibidi:Cancel()
         end
         skibidi = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.PartTele, TweenInfo.new(Distance / getgenv().TweenSpeed, Enum.EasingStyle.Linear),{CFrame = Pos})
-        didauvaynhi:Play()
+        skibidi:Play()
     end
 end
 function TweenBoat(CFgo)
@@ -793,8 +793,7 @@ a = 1
           wait(0.5)
       end
   end)
-  
-  
+   
 function EquipTool(Toolse)
     local tool = game.Players.LocalPlayer.Backpack:FindFirstChild(Toolse)
     if tool then
@@ -815,6 +814,29 @@ function EnableBuso()
     end
 end
 
+function AttackNoCoolDown()
+    local targets = {}
+    local enemies = game:GetService("Workspace").Enemies:GetChildren()
+    local primaryPart = FindEnemiesInRange(targets, enemies)
+
+    if not primaryPart then return end
+
+    local tool = GetEquippedTool()
+    if not tool then return end
+
+    pcall(function()
+        local storage = game:GetService("ReplicatedStorage")
+        local attackEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterAttack")
+        local hitEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterHit")
+
+        if #targets > 0 then
+            attackEvent:FireServer(0.000000001)
+            hitEvent:FireServer(primaryPart, targets)
+        else
+            task.wait(0.000000001)
+        end
+    end)
+end
 function BTP(p)
     repeat wait()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
@@ -1066,29 +1088,6 @@ function GetEquippedTool()
     return nil
 end
 
-function AttackNoCoolDown()
-    local targets = {}
-    local enemies = game:GetService("Workspace").Enemies:GetChildren()
-    local primaryPart = FindEnemiesInRange(targets, enemies)
-
-    if not primaryPart then return end
-
-    local tool = GetEquippedTool()
-    if not tool then return end
-
-    pcall(function()
-        local storage = game:GetService("ReplicatedStorage")
-        local attackEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterAttack")
-        local hitEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterHit")
-
-        if #targets > 0 then
-            attackEvent:FireServer(0.000000001)
-            hitEvent:FireServer(primaryPart, targets)
-        else
-            task.wait(0.000000001)
-        end
-    end)
-end
 local CheckLevel = game.Players.LocalPlayer.Data.Level.Value
 -----------------------------------------------------------------------------------------
 local VuKhi = Tabs.Main:AddSection("Select Weapon")

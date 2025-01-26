@@ -1,3 +1,69 @@
+local player = game.Players.LocalPlayer
+
+function FindEnemiesInRange(targets, enemies)
+    local playerPos = (player.Character or player.CharacterAdded:Wait()):GetPivot().Position
+    local primaryTarget = nil
+
+    for _, enemy in ipairs(enemies) do
+        if not enemy:GetAttribute("IsBoat") and enemy:FindFirstChildOfClass("Humanoid") and enemy.Humanoid.Health > 0 then
+            local head = enemy:FindFirstChild("Head")
+            if head and (playerPos - head.Position).Magnitude <= 60 then
+                if enemy ~= player.Character then
+                    table.insert(targets, { enemy, head })
+                    primaryTarget = head
+                end
+            end
+        end
+    end
+
+    return primaryTarget
+end
+
+function GetEquippedTool()
+    local character = player.Character
+    if not character then return nil end
+    for _, item in ipairs(character:GetChildren()) do
+        if item:IsA("Tool") then
+            return item
+        end
+    end
+    return nil
+end
+
+function AttackNoCoolDown()
+    local targets = {}
+    local enemies = game:GetService("Workspace").Enemies:GetChildren()
+    local primaryPart = FindEnemiesInRange(targets, enemies)
+
+    if not primaryPart then return end
+
+    local tool = GetEquippedTool()
+    if not tool then return end
+
+    pcall(function()
+        local storage = game:GetService("ReplicatedStorage")
+        local attackEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterAttack")
+        local hitEvent = storage:WaitForChild("Modules"):WaitForChild("Net"):WaitForChild("RE/RegisterHit")
+
+        if #targets > 0 then
+            attackEvent:FireServer(0.000000001)
+            hitEvent:FireServer(primaryPart, targets)
+        else
+            task.wait(0.000000001)
+        end
+    end)
+end
+
+FastAttack = true
+
+spawn(function()
+    if FastAttack then
+        repeat
+            task.wait()
+            AttackNoCoolDown()
+        until not FastAttack
+    end
+end)
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
